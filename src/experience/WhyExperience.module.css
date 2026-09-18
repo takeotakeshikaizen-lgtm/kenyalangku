@@ -1,0 +1,70 @@
+.experience {
+  position: absolute;
+
+  /*
+    Push the Three.js canvas upward into
+    the Hero section.
+  */
+
+  top: -340px;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 820px;
+
+  /*
+    Must sit above Hero.
+  */
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  overflow: visible;
+}
+
+/* =====================================================
+   LARGE SCREEN
+===================================================== */
+
+@media (min-width: 1600px) {
+  .experience {
+    top: -390px;
+
+    height: 900px;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+  .experience {
+    top: -270px;
+
+    width: 110%;
+
+    left: -5%;
+
+    height: 690px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .experience {
+    top: -190px;
+
+    width: 140%;
+
+    left: -20%;
+
+    height: 520px;
+  }
+}

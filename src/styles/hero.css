@@ -1,0 +1,401 @@
+/* =====================================================
+   HERO ZONE
+===================================================== */
+
+.hero-zone {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background: #080b0a;
+}
+
+/* =====================================================
+   VIDEO BACKGROUND
+===================================================== */
+
+.hero-bg-video {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /*
+    Aras is on the right side of the video,
+    so keep the focal point biased to the right.
+  */
+  object-position: center right;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   CINEMATIC OVERLAY
+===================================================== */
+
+.hero-video-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 8, 9, 0.93) 0%,
+      rgba(5, 10, 11, 0.84) 22%,
+      rgba(7, 12, 13, 0.66) 38%,
+      rgba(8, 12, 13, 0.34) 58%,
+      rgba(9, 8, 7, 0.12) 75%,
+      rgba(8, 7, 6, 0.18) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 7, 6, 0.22) 0%,
+      rgba(3, 7, 6, 0) 30%,
+      rgba(3, 7, 6, 0.08) 70%,
+      rgba(3, 7, 6, 0.3) 100%
+    );
+}
+
+/* subtle vignette */
+
+.hero-zone::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 160px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    145px
+    0
+    90px;
+}
+
+/* =====================================================
+   HERO GRID
+===================================================== */
+
+.hero-inner {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(420px, 0.92fr);
+
+  gap: clamp(
+    40px,
+    5vw,
+    100px
+  );
+
+  align-items: center;
+}
+
+/* =====================================================
+   HERO LEFT CONTENT
+===================================================== */
+
+.hero-content {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 1050px;
+}
+
+.hero-content .display {
+  margin-top: 24px;
+
+  max-width: 980px;
+
+  text-shadow:
+    0 4px 35px rgba(0, 0, 0, 0.2);
+}
+
+.hero-description {
+  max-width: 650px;
+
+  margin:
+    34px
+    0
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 1.08rem;
+
+  line-height: 1.78;
+
+  text-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================================
+   HERO ACTIONS
+===================================================== */
+
+.hero-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-top: 34px;
+}
+
+.button {
+  min-height: 50px;
+
+  padding:
+    0
+    20px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 999px;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-dark {
+  color: var(--forest-950);
+
+  background:
+    rgba(255, 255, 255, 0.93);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 10px 35px
+    rgba(0, 0, 0, 0.14);
+}
+
+.button-dark:hover {
+  background: white;
+}
+
+.button-outline {
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.button-outline:hover {
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  border-color:
+    rgba(255, 255, 255, 0.28);
+}
+
+/* =====================================================
+   PRINCIPLE
+===================================================== */
+
+.principle-line {
+  margin:
+    50px
+    0
+    0;
+
+  color: var(--brass-soft);
+
+  font-size: 0.87rem;
+
+  font-weight: 700;
+
+  text-shadow:
+    0 2px 14px
+    rgba(0, 0, 0, 0.3);
+}
+
+/* =====================================================
+   RIGHT VISUAL SPACE
+
+   This reserves the right side for Aras.
+   There is intentionally NO glass card here.
+===================================================== */
+
+.hero-visual-space {
+  width: 100%;
+
+  min-height: 620px;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+  .hero-bg-video {
+    object-position: 68% center;
+  }
+
+  .hero-inner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(300px, 0.55fr);
+
+    gap: 30px;
+  }
+
+  .hero-visual-space {
+    min-height: 500px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .hero {
+    padding:
+      115px
+      0
+      70px;
+
+    align-items: flex-end;
+  }
+
+  .hero-bg-video {
+    object-position: 70% center;
+  }
+
+  .hero-video-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 9, 9, 0.28) 0%,
+        rgba(5, 9, 9, 0.42) 40%,
+        rgba(5, 9, 9, 0.9) 78%,
+        rgba(5, 9, 9, 0.97) 100%
+      );
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .hero-content {
+    align-self: end;
+
+    padding-bottom: 10px;
+  }
+
+  .hero-description {
+    max-width: 100%;
+
+    font-size: 1rem;
+  }
+
+  .hero-visual-space {
+    display: none;
+  }
+
+  .principle-line {
+    margin-top: 38px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video {
+    display: none;
+  }
+
+  .hero-zone {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 10, 12, 0.88),
+        rgba(5, 10, 12, 0.2)
+      ),
+      url("/images/kenyalangku/aras-bg.png");
+
+    background-size: cover;
+
+    background-position: center right;
+
+    background-repeat: no-repeat;
+  }
+}

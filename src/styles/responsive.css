@@ -1,0 +1,193 @@
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+  .container {
+    width: calc(100% - 48px);
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: grid;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-side {
+    min-height: 500px;
+  }
+
+  .section-content-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .vmo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vmo-item {
+    min-height: 380px;
+  }
+
+  .project-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .project-placeholder {
+    min-height: 500px;
+
+    border-left: none;
+
+    border-top: 1px solid
+      rgba(255, 255, 255, 0.1);
+  }
+
+  .collaborate-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  /* Navigation */
+
+  .navbar {
+    top: 0;
+    padding-top: 8px;
+  }
+
+  .navbar-panel {
+    width: calc(100% - 24px);
+    height: 56px;
+  }
+
+  .navbar-left {
+    gap: 0;
+  }
+
+  .navbar-name {
+    font-size: 0.82rem;
+  }
+
+  .navbar-icon-button {
+    display: none;
+  }
+
+  /* Hero */
+
+  .hero {
+    padding:
+      125px
+      0
+      70px;
+  }
+
+  .display {
+    font-size: clamp(
+      3.6rem,
+      17vw,
+      5.3rem
+    );
+
+    line-height: 0.9;
+  }
+
+  .heading {
+    font-size: clamp(
+      3rem,
+      14vw,
+      4.5rem
+    );
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-side {
+    min-height: 430px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+  }
+
+  /* Sections */
+
+  .section {
+    padding:
+      85px
+      0;
+  }
+
+  .section-culture {
+    margin:
+      16px
+      14px;
+  }
+
+  .section-content-grid {
+    padding: 28px;
+  }
+
+  .project-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-info {
+    padding:
+      34px
+      24px;
+  }
+
+  .project-placeholder {
+    min-height: 420px;
+
+    padding: 28px;
+  }
+
+  .journal-placeholder,
+  .collaborate-inner {
+    padding:
+      34px
+      24px;
+  }
+
+  /* Footer */
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  /* Scroll to top */
+
+  .scroll-top-button {
+    right: 14px;
+    bottom: 14px;
+
+    width: 42px;
+    height: 42px;
+  }
+}

@@ -1,0 +1,41 @@
+:root {
+  /* Brand colours */
+
+  --ink: #101413;
+
+  --forest-950: #081411;
+  --forest-900: #0d1e1a;
+  --forest-800: #17332c;
+  --forest-700: #24483e;
+
+  --cream: #f4f1e9;
+
+  --brass: #c49a58;
+  --brass-soft: #dec496;
+
+  --hibiscus: #8d3440;
+
+  /* White transparency */
+
+  --white-100: rgba(255, 255, 255, 1);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-10: rgba(255, 255, 255, 0.1);
+
+  /* Glass */
+
+  --glass-light: rgba(255, 255, 255, 0.14);
+
+  --glass-border:
+    rgba(255, 255, 255, 0.15);
+
+  /* Layout */
+
+  --page-max: 1800px;
+
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+}
