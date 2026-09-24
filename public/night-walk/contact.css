@@ -1,0 +1,31 @@
+/* The final chapter sends visitors to the full contact page. */
+.afterlight .chapter-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 3.5vw;
+}
+.contact-panel {
+  position: relative;
+  z-index: 5;
+  width: min(100%, 1050px);
+  padding: 38px 26px;
+  background: transparent;
+  text-align: center;
+}
+.contact-panel > .eyebrow { justify-content: center; }
+.contact-panel > .brand-jawi { margin: 29px auto 6px; text-align: center; }
+.contact-panel h2 { margin: 0; font-size: clamp(38px, 6.3vw, 82px); line-height: 1.12; letter-spacing: -.065em; }
+.contact-panel__intro { margin: 19px auto 0; color: #a9b7bb; font-size: 14px; line-height: 1.7; }
+.contact-panel__link { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 48px; margin-top: 35px; padding: 0 1px 8px; border-bottom: 1px solid #e2e2d65a; color: #d9c9a5; font-size: 12px; letter-spacing: .13em; }
+.contact-panel__link:hover { border-color: var(--orange); color: var(--orange); }
+.contact-panel__link span { color: var(--orange); font-size: 18px; }
+.contact-panel__link:focus-visible { outline: 2px solid var(--orange); outline-offset: 5px; }
+@media (max-width: 760px) {
+  .afterlight .chapter-frame { position: relative; height: auto; min-height: 100svh; padding: 96px 6vw 100px; overflow: visible; }
+  .contact-panel { padding: 30px 12px; }
+  .contact-panel > .brand-jawi { margin-top: 26px; }
+  .contact-panel h2 { font-size: clamp(38px, 10.8vw, 54px); }
+  .contact-panel__intro { max-width: 310px; margin-top: 15px; font-size: 13px; }
+  .contact-panel__link { margin-top: 27px; }
+}

@@ -1,41 +1,56 @@
-import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
+import Navbar from "@/src/components/Navbar";
+import SiteFooter from "@/src/components/SiteFooter";
+import SiteLoader from "@/src/components/SiteLoader";
 import "./globals.css";
+import "../public/night-walk/footer-9.css";
+import "../public/night-walk/site-header.css";
+import "../public/night-walk/intro.css";
 
-import "../src/styles/variables.css";
-import "../src/styles/base.css";
-import "../src/styles/navbar.css";
-import "../src/styles/hero.css";
-import "../src/styles/sections/why.css";
-import "../src/styles/sections/projects.css";
-import "../src/styles/footer.css";
-import "../src/styles/responsive.css";
-
-const manrope = Manrope({
-  subsets: ["latin"],
+const manrope = localFont({
+  src: "../public/night-walk/fonts/manrope-latin.woff2",
+  weight: "200 800",
+  variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Kenyalangku",
-    template: "%s | Kenyalangku",
+    default: "KenyalangKu — Rooted in heritage. Made for the world.",
+    template: "%s | KenyalangKu",
   },
-
   description:
-    "Bringing Malaysian culture and imagination to the world through games.",
+    "An independent Malaysian game studio creating culturally rooted games for a global audience. Discover PUSAKA, MYTH: TANAH, and the story behind KenyalangKu.",
+  applicationName: "KenyalangKu",
+  openGraph: {
+    type: "website",
+    locale: "en_MY",
+    siteName: "KenyalangKu",
+    title: "KenyalangKu — Culture through play",
+    description:
+      "Malaysian stories. New worlds. Discover an independent game studio rooted in heritage and imagination.",
+  },
+  icons: { icon: "/brand-icon.png", apple: "/brand-icon.png" },
 };
+
+export const viewport: Viewport = { themeColor: "#f4f1e9" };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={manrope.className}>
-        {children}
+    <html lang="en" data-scroll-behavior="smooth">
+      <body className={manrope.variable}>
+        <SiteLoader />
+        <div id="site-content">
+          <a className="skip-link" href="#main">
+            Skip to content
+          </a>
+          <Navbar />
+          {children}
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

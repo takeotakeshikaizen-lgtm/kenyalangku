@@ -1,0 +1,138 @@
+.aboutPage {
+  --about-ink: #080c10;
+  --about-bone: #e2e2d6;
+  --about-muted: #a0aaa5;
+  --about-rule: rgba(189, 208, 209, 0.2);
+  --about-amber: #eaa124;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 80% 3%, rgba(37, 59, 68, 0.28), transparent 36%),
+    var(--about-ink);
+  color: var(--about-bone);
+}
+
+.aboutPage::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: repeating-linear-gradient(135deg, transparent 0 78px, rgba(189, 208, 209, 0.018) 79px, transparent 80px);
+  content: "";
+  pointer-events: none;
+}
+
+.inner {
+  width: min(calc(100% - 112px), 1320px);
+  margin-inline: auto;
+}
+
+.intro {
+  padding-top: clamp(58px, 8vw, 102px);
+  padding-bottom: clamp(30px, 4.4vw, 58px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--about-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.eyebrow i {
+  width: 5px;
+  height: 5px;
+  background: var(--about-amber);
+  box-shadow: 0 0 12px rgba(234, 161, 36, 0.48);
+}
+
+.introRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 44px;
+  margin-top: 25px;
+}
+
+.introRow h1 {
+  color: var(--about-bone);
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: clamp(50px, 7.4vw, 104px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.94;
+}
+
+.introRow h1 span {
+  color: var(--about-amber);
+}
+
+.introRow p {
+  max-width: 325px;
+  padding-bottom: 7px;
+  color: #aeb8b4;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.carouselWrap {
+  padding-bottom: clamp(54px, 8vw, 104px);
+}
+
+.closing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0 35px;
+  border-top: 1px solid var(--about-rule);
+}
+
+.closing span {
+  color: var(--about-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.closing a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--about-bone);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 180ms ease, gap 180ms ease;
+}
+
+.closing a:hover {
+  gap: 17px;
+  color: var(--about-amber);
+}
+
+@media (max-width: 760px) {
+  .inner { width: min(calc(100% - 40px), 1320px); }
+  .intro { padding-top: 46px; padding-bottom: 28px; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; }
+  .introRow { display: block; margin-top: 22px; }
+  .introRow h1 { font-size: clamp(47px, 11vw, 76px); }
+  .introRow p { max-width: 340px; margin-top: 18px; font-size: 12px; }
+  .carouselWrap { padding-bottom: 58px; }
+  .closing { align-items: flex-start; padding-bottom: 26px; }
+  .closing span { max-width: 175px; line-height: 1.7; }
+}
+
+@media (max-width: 420px) {
+  .inner { width: calc(100% - 32px); }
+  .introRow h1 { font-size: 47px; }
+  .closing { flex-direction: column; gap: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .closing a { transition: none; }
+}

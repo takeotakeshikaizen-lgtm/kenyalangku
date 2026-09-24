@@ -1,0 +1,159 @@
+/* Keep the deck in document flow below its copy, within the pinned chapter. */
+.worlds .chapter-frame {
+  height: auto;
+  min-height: 100svh;
+  padding-top: 125px;
+  padding-bottom: 105px;
+  overflow: visible;
+}
+.worlds .chapter-copy { max-width: none; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr); column-gap: 6vw; align-items: end; }
+.worlds .eyebrow { grid-column: 1 / -1; }
+.worlds h2 { margin-top: 18px; font-size: clamp(36px, 3.2vw, 52px); }
+.worlds .lede { margin-top: 18px; max-width: 380px; }
+.worlds .chapter-coordinate { position: static; margin-top: 22px; }
+.worlds .project-deck {
+  position: relative;
+  margin-top: 28px;
+  height: clamp(300px, 36vh, 380px);
+  display: flex;
+  gap: 13px;
+  z-index: 2;
+}
+.worlds .project-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #adbcc049;
+  border-radius: 4px;
+  background: #121b20;
+  isolation: isolate;
+  transition: flex-grow .8s cubic-bezier(.2,.72,.2,1), border-color .5s ease;
+}
+.worlds .project-panel[open] { flex-grow: 2.25; border-color: #d998477d; }
+.worlds .project-panel-trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(180deg, #0710154a 0%, #07101524 28%, #071015dc 83%, #071015f5 100%);
+}
+.worlds .project-panel-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 23px;
+  cursor: pointer;
+  list-style: none;
+}
+.worlds .project-panel-trigger::-webkit-details-marker { display: none; }
+.worlds .project-panel-trigger:focus-visible { outline: 2px solid var(--orange); outline-offset: -6px; }
+.worlds .project-panel-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.78) saturate(.72);
+  transition: transform 1.1s ease, filter .6s ease;
+}
+.worlds .project-panel-myth img { object-position: center 35%; }
+.worlds .project-panel-pusaka img { object-position: center 50%; }
+.worlds .project-panel:hover .project-panel-image, .worlds .project-panel[open] .project-panel-image { transform: scale(1.045); filter: brightness(.88) saturate(.82); }
+.worlds .project-panel-index { display: block; position: relative; z-index: 2; max-width: calc(100% - 35px); color: #ddceb2; font-size: 12px; letter-spacing: .16em; line-height: 1.5; text-shadow: 0 1px 5px #020507; }
+.worlds .project-panel-title { display: block; position: relative; z-index: 2; margin-top: 8px; color: #f0eee5; font-size: clamp(27px, 2.8vw, 42px); line-height: 1; letter-spacing: -.055em; text-shadow: 0 2px 12px #020507; }
+.worlds .project-panel-symbol {
+  position: absolute;
+  z-index: 2;
+  top: 17px;
+  right: 17px;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e7e3cfad;
+  border-radius: 50%;
+  background: #07101580;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 300;
+  transition: transform .35s ease, background .35s ease;
+}
+.worlds .project-panel[open] .project-panel-symbol { transform: rotate(45deg); background: #bc792d; }
+.worlds .project-panel[open] .project-panel-trigger { justify-content: flex-start; }
+.worlds .project-panel-detail {
+  position: absolute;
+  z-index: 3;
+  left: 23px;
+  right: 23px;
+  bottom: 20px;
+  max-width: 500px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity .5s ease .14s, transform .6s ease .14s, visibility .5s;
+}
+.worlds .project-panel[open] .project-panel-detail { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+.worlds .project-panel-detail p { max-width: 455px; color: #d1d8d3; font-size: 12px; line-height: 1.65; text-shadow: 0 2px 8px #020507; }
+.worlds .project-panel-caption { display: block; margin-top: 10px; color: #bfbaa8; font-size: 12px; letter-spacing: .14em; }
+.worlds .project-panel-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 32px;
+  margin-top: 10px;
+  padding: 7px 11px;
+  border: 1px solid #e4dbc29c;
+  background: #0b1419d9;
+  color: #f4eee2;
+  font-size: 12px;
+  letter-spacing: .14em;
+}
+.worlds .project-panel-link:hover, .worlds .project-panel-link:focus-visible { border-color: var(--orange); color: var(--orange); }
+.worlds .project-panel-link span { font-size: 15px; line-height: .6; }
+
+@media (max-height: 800px) and (min-width: 761px) {
+  .worlds .chapter-frame { padding-top: 118px; }
+  .worlds .project-deck { height: 300px; margin-top: 24px; }
+  .worlds .project-panel-detail { bottom: 13px; }
+  .worlds .project-panel-detail p { font-size: 12px; line-height: 1.5; }
+  .worlds .project-panel-caption { margin-top: 6px; }
+  .worlds .project-panel-link { margin-top: 6px; }
+}
+@media (max-width: 760px) {
+  .worlds { height: auto; min-height: 155svh; }
+  .worlds .chapter-frame { position: relative; height: auto; padding-top: 120px; padding-bottom: 125px; }
+  .worlds .chapter-copy { display: block; }
+  .worlds h2 { font-size: 38px; }
+  .worlds .project-deck { height: 440px; gap: 8px; margin-top: 28px; }
+  .worlds .project-panel[open] { flex-grow: 5; }
+  .worlds .project-deck:has(.project-panel[open]) .project-panel:not([open]) { flex: 0 0 48px; }
+  .worlds .project-panel-trigger { padding: 14px; }
+  .worlds .project-panel-index { font-size: 12px; letter-spacing: .09em; }
+  .worlds .project-panel-title { font-size: 24px; line-height: 1.1; overflow-wrap: normal; }
+  .worlds .project-panel-symbol { width: 23px; height: 23px; top: 10px; right: 10px; font-size: 15px; }
+  .worlds .project-panel-detail { left: 14px; right: 14px; bottom: 12px; }
+  .worlds .project-panel-detail p { font-size: 12px; line-height: 1.55; }
+  .worlds .project-panel-caption { margin-top: 7px; font-size: 12px; }
+  .worlds .project-panel-link { min-height: 44px; margin-top: 12px; padding: 8px 10px; gap: 12px; font-size: 12px; }
+  .worlds .project-panel-link span { font-size: 13px; }
+  .worlds .project-deck:has(.project-panel[open]) .project-panel:not([open]) .project-panel-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 17px;
+    white-space: nowrap;
+  }
+  .worlds .project-deck:has(.project-panel[open]) .project-panel:not([open]) .project-panel-index { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .worlds .project-panel, .worlds .project-panel-image, .worlds .project-panel-detail, .worlds .project-panel-symbol { transition: none; }
+}

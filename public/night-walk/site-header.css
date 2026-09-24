@@ -1,0 +1,34 @@
+/* Shared by the standalone journey and every company page. */
+@font-face{font-family:'Kenyalang UI';src:url('./fonts/manrope-latin.woff2') format('woff2');font-style:normal;font-weight:200 800;font-display:swap}
+@font-face{font-family:'Kenyalang Jawi';src:url('./fonts/kenyalang-jawi.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+.kk-header{--header-ink:#e2e2d6;--header-muted:#aab5b7;--header-accent:#eaa124;position:sticky;inset:0 0 auto;z-index:120;display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;padding:10px 3.5vw;border:0;background:transparent;color:var(--header-ink);font-family:'Kenyalang UI',Arial,sans-serif;box-sizing:border-box}
+.kk-header--paper{--header-ink:#232a25;--header-muted:#505b54;--header-accent:#93661f}
+.kk-header.site-header--heritage{background:transparent}
+.kk-header--journey{position:fixed}
+.skip,.skip-link{z-index:210}
+.kk-header__brand{display:flex;align-items:center;gap:10px;min-height:44px;flex-shrink:0;color:inherit;text-decoration:none}
+.kk-header__logo{display:block;width:38px;height:38px;object-fit:contain}
+.kk-header__name{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.kk-header__jawi{font-family:'Kenyalang Jawi',serif;font-size:14px;font-weight:400;line-height:1.1;color:var(--header-ink)}
+.kk-header__latin{font-size:15px;font-weight:650;letter-spacing:.08em;line-height:1.2}
+.kk-header__latin em{color:var(--header-accent);font-style:normal}
+.kk-header__nav{display:flex;align-items:center;gap:clamp(20px,2.3vw,40px);margin-left:auto}
+.kk-header__nav a{position:relative;display:flex;align-items:center;min-height:44px;color:var(--header-muted);font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none}
+.kk-header__nav a[aria-current],.kk-header__nav a:hover{color:var(--header-ink)}
+.kk-header__nav a[aria-current]::after{position:absolute;content:'';height:1px;background:var(--header-accent);inset:auto 0 0}
+.kk-header__toggle{display:none;width:44px;height:44px;padding:9px;background:transparent;border:1px solid #e2e2d630;color:inherit;cursor:pointer;flex-direction:column;justify-content:center;gap:6px}
+.kk-header__toggle span{display:block;width:24px;height:1px;background:currentColor;transition:transform .25s ease}
+.kk-header__toggle[aria-expanded='true'] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.kk-header__toggle[aria-expanded='true'] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.kk-navigation-panel{position:fixed;z-index:119;inset:72px 0 0;padding:28px 7vw 40px;overflow-y:auto;background:#080c1afa;color:#e2e2d6;font-family:'Kenyalang UI',Arial,sans-serif}
+.kk-navigation-panel[hidden]{display:none}
+.kk-navigation-panel__links{display:grid}
+.kk-navigation-panel__links a{padding:14px 0;border-bottom:1px solid #e2e2d61c;font-size:clamp(22px,4vw,32px);line-height:1.3;color:inherit;text-decoration:none}
+.kk-navigation-panel__links a[aria-current]{color:#eaa124}
+.kk-navigation-panel__note{display:block;margin-top:28px;font-size:12px;letter-spacing:.06em;line-height:1.8;color:#9fafb3}
+.kk-navigation-panel__email{display:inline-block;margin-top:20px;color:#eaa124;font-size:14px}
+.kk-header a:focus-visible,.kk-header button:focus-visible,.kk-navigation-panel a:focus-visible{outline:2px solid #eaa124;outline-offset:5px}
+.brand-jawi{display:block;margin:0 0 14px;font-family:'Kenyalang Jawi',serif;font-size:clamp(22px,2.2vw,30px);line-height:1.5;text-align:left;color:#d9c9a5}
+@media(max-width:1050px){.kk-header__nav{display:none}.kk-header__toggle{display:flex}}
+@media(max-width:760px){.kk-header{height:64px;padding:8px 6vw;gap:16px}.kk-header__logo{width:34px;height:34px}.kk-header__latin{font-size:14px}.kk-header__jawi{font-size:13px}.kk-navigation-panel{top:64px}}
+@media(prefers-reduced-motion:reduce){.kk-header__toggle span{transition:none}}

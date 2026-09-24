@@ -1,0 +1,317 @@
+.carousel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(350px, 0.92fr);
+  gap: clamp(34px, 6.4vw, 92px);
+  align-items: stretch;
+  min-height: 570px;
+  padding-bottom: 4px;
+  color: #e2e2d6;
+}
+
+.visual {
+  position: relative;
+  min-height: 570px;
+  overflow: hidden;
+  border: 1px solid rgba(189, 208, 209, 0.18);
+  background:
+    radial-gradient(circle at 56% 42%, rgba(196, 83, 64, 0.19), transparent 46%),
+    #10191e;
+  isolation: isolate;
+}
+
+.visual::before,
+.visual::after {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  pointer-events: none;
+}
+
+.visual::before {
+  inset: 17px;
+  border: 1px solid rgba(226, 226, 214, 0.22);
+}
+
+.visual::after {
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 8, 11, 0.12), transparent 42%, rgba(4, 8, 11, 0.78));
+}
+
+.visualImage {
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.78) contrast(1.04);
+  animation: image-arrive 900ms cubic-bezier(0.2, 0.65, 0.25, 1) both;
+}
+
+.founderVisual .visualImage {
+  object-position: center 58%;
+}
+
+.contain .visualImage {
+  object-fit: contain;
+  padding: 7% 4% 3%;
+  filter: saturate(0.72) contrast(1.05) drop-shadow(0 20px 34px rgba(0, 0, 0, 0.4));
+}
+
+.visualShade {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(6, 12, 16, 0.06), transparent 48%, rgba(6, 12, 16, 0.16));
+  pointer-events: none;
+}
+
+.visualIndex,
+.visualCaption {
+  position: absolute;
+  z-index: 3;
+  left: clamp(27px, 3vw, 42px);
+  color: #e2e2d6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.visualIndex {
+  top: clamp(29px, 3vw, 44px);
+  color: #eaa124;
+}
+
+.visualCaption {
+  right: 26px;
+  bottom: clamp(29px, 3vw, 42px);
+  line-height: 1.5;
+}
+
+.story {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-width: 0;
+  padding: clamp(18px, 2.8vw, 38px) 0 15px;
+}
+
+.storyContent {
+  align-self: center;
+  animation: copy-arrive 520ms cubic-bezier(0.2, 0.65, 0.25, 1) both;
+}
+
+.storyMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  color: #a0aaa5;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.storyMeta > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.storyMeta i {
+  width: 5px;
+  height: 5px;
+  background: #eaa124;
+  box-shadow: 0 0 12px rgba(234, 161, 36, 0.5);
+}
+
+.story h2 {
+  max-width: 640px;
+  margin: clamp(27px, 4vw, 50px) 0 28px;
+  color: #e2e2d6;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: clamp(42px, 5.3vw, 76px);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.99;
+}
+
+.story h2.founderTitle {
+  font-size: clamp(38px, 4.4vw, 64px);
+}
+
+.storyRule {
+  width: 68px;
+  height: 1px;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #eaa124, rgba(234, 161, 36, 0.14));
+}
+
+.story p {
+  max-width: 470px;
+  color: #b6c0bc;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.storyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid rgba(189, 208, 209, 0.28);
+  color: #e2e2d6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: color 180ms ease, gap 180ms ease, border-color 180ms ease;
+}
+
+.storyLink:hover {
+  gap: 24px;
+  border-color: #eaa124;
+  color: #eaa124;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 42px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(189, 208, 209, 0.16);
+}
+
+.arrow,
+.pause {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(189, 208, 209, 0.22);
+  border-radius: 50%;
+  background: transparent;
+  color: #d4d9d2;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.arrow:hover,
+.pause:hover {
+  border-color: #eaa124;
+  background: rgba(234, 161, 36, 0.08);
+  color: #eaa124;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.paginationButton {
+  display: grid;
+  width: 24px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.paginationButton > span {
+  width: 5px;
+  height: 5px;
+  border: 1px solid #77858a;
+  border-radius: 50%;
+  transition: width 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.paginationButton:hover > span,
+.selected > span {
+  width: 16px;
+  border-color: #eaa124;
+  border-radius: 5px;
+  background: #eaa124;
+}
+
+.controlSpacer {
+  flex: 1;
+}
+
+.pause {
+  flex-basis: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.pauseLabel {
+  color: #a0aaa5;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+.pause:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+@keyframes image-arrive {
+  from { opacity: 0.35; transform: scale(1.025); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes copy-arrive {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1050px) {
+  .carousel {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+    gap: 35px;
+    min-height: 490px;
+  }
+  .visual { min-height: 490px; }
+  .story { padding-top: 10px; }
+  .story h2 { font-size: clamp(38px, 5vw, 60px); }
+}
+
+@media (max-width: 760px) {
+  .carousel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    min-height: 0;
+  }
+  .visual {
+    min-height: 0;
+    aspect-ratio: 1.15;
+  }
+  .visual::before { inset: 12px; }
+  .visualIndex,
+  .visualCaption { left: 23px; font-size: 12px; }
+  .visualCaption { right: 20px; }
+  .story { min-height: 385px; padding: 30px 0 0; }
+  .story h2 { max-width: 580px; margin: 25px 0 22px; font-size: clamp(40px, 9vw, 58px); }
+  .story p { font-size: 12px; }
+  .storyLink { margin-top: 22px; }
+  .controls { margin-top: 30px; }
+}
+
+@media (max-width: 420px) {
+  .visual { aspect-ratio: 0.98; }
+  .story { min-height: 405px; }
+  .storyMeta { font-size: 12px; }
+  .controls { gap: 8px; }
+  .pagination { gap: 1px; }
+  .paginationButton { width: 21px; }
+  .pauseLabel { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualImage,
+  .storyContent { animation: none; }
+  .storyLink,
+  .arrow,
+  .pause,
+  .paginationButton > span { transition: none; }
+}

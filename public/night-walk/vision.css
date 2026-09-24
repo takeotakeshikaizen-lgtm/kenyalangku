@@ -1,0 +1,102 @@
+/* Section 02 alone uses the three-stage editorial timeline from the supplied motion reference. */
+.vision .chapter-frame { padding-top: clamp(125px, 14vh, 165px); }
+.vision .chapter-copy { max-width: 50%; margin-left: auto; }
+.vision h2 { font-size: clamp(52px, 5.2vw, 78px); margin-top: 22px; }
+.vision-steps {
+  position: absolute;
+  top: 40%;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(26px, 4vw, 72px);
+  z-index: 2;
+}
+.vision-steps::before, .vision-steps::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 144px;
+  height: 1px;
+  pointer-events: none;
+}
+.vision-steps::before { right: 0; background: #a3acac4d; }
+.vision-steps::after {
+  width: var(--vision-line-progress, 0%);
+  min-width: 24px;
+  max-width: 100%;
+  background: var(--orange);
+  transition: width .3s ease-out;
+}
+.vision-step { min-width: 0; position: relative; }
+.vision-art { height: 132px; display: flex; align-items: flex-end; }
+.vision-art svg { width: min(100%, 205px); height: 112px; stroke: #8b9aa1; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: .72; overflow: visible; }
+.vision-art .vision-art__accent { stroke: var(--orange); }
+.vision-marker {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+  background: #10181c;
+  border: 1px solid #b87a2e;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+  color: var(--orange);
+}
+.vision-step h3 { font-size: clamp(20px, 1.8vw, 27px); font-weight: 450; letter-spacing: -.045em; margin: 24px 0 0; }
+.vision-step p { max-width: 330px; color: #a2b2b7; font-size: 12px; line-height: 1.8; margin-top: 12px; text-shadow: 0 0 5px #03070b, 0 0 11px #03070b; }
+.vision-next { position: absolute; right: var(--gutter); bottom: 108px; z-index: 2; margin-top: 0; }
+.vision .chapter-coordinate { max-width: 250px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .vision.vision-enhanced .vision-step .vision-art,
+  .vision.vision-enhanced .vision-step h3,
+  .vision.vision-enhanced .vision-step p,
+  .vision.vision-enhanced .vision-step .vision-marker {
+    transition: opacity .75s ease, transform .9s cubic-bezier(.2,.7,.2,1), background-color .75s;
+  }
+  .vision.vision-enhanced .vision-step:not(.is-visible) .vision-art,
+  .vision.vision-enhanced .vision-step:not(.is-visible) h3,
+  .vision.vision-enhanced .vision-step:not(.is-visible) p {
+    opacity: .17;
+    transform: translateY(15px);
+  }
+  .vision.vision-enhanced .vision-step:not(.is-visible) .vision-marker { background: #0b1115; color: #727a78; border-color: #6e6453; }
+  .vision.vision-enhanced .vision-step.is-visible .vision-art svg { animation: vision-breathe 7s ease-in-out infinite alternate; }
+}
+@keyframes vision-breathe { to { transform: translateY(-5px); opacity: .83; } }
+
+@media (max-height: 800px) and (min-width: 761px) {
+  .vision .chapter-frame { padding-top: 105px; }
+  .vision h2 { font-size: clamp(48px, 4.5vw, 66px); }
+  .vision-steps { top: 37%; }
+  .vision-next { bottom: 86px; }
+}
+@media (max-width: 760px) {
+  .vision .chapter-frame { padding-top: 125px; }
+  .vision .chapter-copy { max-width: 100%; margin-left: 0; }
+  .vision h2 { font-size: 40px; margin-top: 24px; }
+  .vision-steps { position: relative; top: auto; left: auto; right: auto; margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+  .vision-steps::before, .vision-steps::after { top: 72px; left: 34px; width: 1px; }
+  .vision-steps::before { bottom: 72px; height: auto; right: auto; }
+  .vision-steps::after { height: var(--vision-line-progress, 0%); min-height: 24px; max-height: calc(100% - 144px); min-width: 0; transition: height .3s ease-out; }
+  .vision-step { display: grid; grid-template-columns: 68px minmax(0, 1fr); column-gap: 16px; align-items: start; min-height: 137px; }
+  .vision-art { grid-column: 1; grid-row: 1 / span 2; height: 62px; align-items: center; }
+  .vision-art svg { width: 68px; height: 55px; stroke-width: 2.2; opacity: .85; }
+  .vision-marker { position: absolute; left: 22px; top: 71px; width: 24px; height: 24px; }
+  .vision-step h3 { grid-column: 2; grid-row: 1; font-size: 22px; margin: 2px 0 0; }
+  .vision-step p { grid-column: 2; grid-row: 2; font-size: 12px; line-height: 1.65; margin-top: 5px; background: linear-gradient(90deg, #091117dc, #091117ab 82%, transparent); }
+  .vision-next { position: relative; right: auto; bottom: auto; margin-top: 24px; font-size: 12px; }
+  .vision .chapter-coordinate { position: static; margin-top: 20px; max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vision-steps::after { width: 100%; transition: none; }
+  .vision-step .vision-art, .vision-step h3, .vision-step p { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 760px) {
+  .vision-steps::after { width: 1px; height: calc(100% - 144px); }
+}
