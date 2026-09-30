@@ -7,9 +7,7 @@
   position: relative;
   isolation: isolate;
   overflow: clip;
-  background:
-    radial-gradient(ellipse at 80% 3%, rgba(37, 59, 68, 0.28), transparent 36%),
-    var(--about-ink);
+  background: transparent;
   color: var(--about-bone);
 }
 

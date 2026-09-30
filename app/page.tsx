@@ -7,7 +7,6 @@ import {
   Pillars,
   ProjectCards,
   Founder,
-  JournalCards,
   CollaborationCTA,
 } from "@/src/components/StudioUI";
 export default function Home() {
@@ -54,22 +53,6 @@ export default function Home() {
         <div className="container">
           <Founder />
         </div>
-      </section>
-      <section className="section container">
-        <div className="section-heading">
-          <div>
-            <SectionLabel number="04">FROM THE STUDIO</SectionLabel>
-            <h2>
-              Ideas, stories,
-              <br />
-              <em>and the in-between.</em>
-            </h2>
-          </div>
-          <Link className="text-link" href="/journal">
-            Open the journal <ArrowUpRight size={17} />
-          </Link>
-        </div>
-        <JournalCards />
       </section>
       <CollaborationCTA />
     </main>

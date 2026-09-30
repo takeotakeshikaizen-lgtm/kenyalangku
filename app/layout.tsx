@@ -3,10 +3,12 @@ import localFont from "next/font/local";
 import Navbar from "@/src/components/Navbar";
 import SiteFooter from "@/src/components/SiteFooter";
 import SiteLoader from "@/src/components/SiteLoader";
+import PageBackdrop from "@/src/components/PageBackdrop";
 import "./globals.css";
 import "../public/night-walk/footer-9.css";
 import "../public/night-walk/site-header.css";
 import "../public/night-walk/intro.css";
+import "./inner-pages.css";
 
 const manrope = localFont({
   src: "../public/night-walk/fonts/manrope-latin.woff2",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   icons: { icon: "/brand-icon.png", apple: "/brand-icon.png" },
 };
 
-export const viewport: Viewport = { themeColor: "#f4f1e9" };
+export const viewport: Viewport = { themeColor: "#080c10" };
 
 export default function RootLayout({
   children,
@@ -42,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body className={manrope.variable}>
+        <PageBackdrop />
         <SiteLoader />
         <div id="site-content">
           <a className="skip-link" href="#main">

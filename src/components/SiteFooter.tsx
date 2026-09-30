@@ -1,7 +1,7 @@
 /* Full document links are required: Home is a standalone WebGL document. */
 /* eslint-disable @next/next/no-html-link-for-pages */
 import Image from "next/image";
-import { BookOpenText, Link2, Mail } from "lucide-react";
+import { Gamepad2, Link2, Mail } from "lucide-react";
 import FooterNewsletter from "@/src/components/FooterNewsletter";
 
 export default function SiteFooter() {
@@ -24,13 +24,8 @@ export default function SiteFooter() {
             </div>
             <div className="kk-footer__column">
               <span className="kk-footer__capsule">RESOURCES</span>
-              <a href="/journal">Studio journal</a>
               <a href="/#vision">Mission & objective</a>
               <a href="#footer-updates">Studio updates</a>
-              <details id="studio-notes" className="kk-footer__journal">
-                <summary>Latest note <span>+</span></summary>
-                <div><h3>Why we begin with culture.</h3><p>KenyalangKu begins with a simple intention: make games that carry something of home. PUSAKA is our first proof in development; MYTH: TANAH is our flagship world in the making.</p><a href="/journal">READ MORE →</a></div>
-              </details>
             </div>
             <div id="connections" className="kk-footer__column">
               <span className="kk-footer__capsule">CONNECT</span>
@@ -43,15 +38,15 @@ export default function SiteFooter() {
           <div className="kk-footer__side">
             <section id="footer-updates" className="kk-footer__newsletter" aria-labelledby="footer-updates-title">
               <div className="kk-footer__visual" aria-hidden="true"><Image src="/images/kenyalangku/kenyalangku-logo.png" alt="" width={94} height={94} /></div>
-              <h2 id="footer-updates-title">Studio notes</h2>
-              <p>Occasional notes on Malaysian stories and original worlds.</p>
+              <h2 id="footer-updates-title">Studio updates</h2>
+              <p>Occasional updates on our games and worlds in progress.</p>
               <FooterNewsletter />
             </section>
             <div className="kk-footer__follow">
               <strong>Connect</strong>
               <nav aria-label="Ways to connect">
-                <a href="/journal" aria-label="Read the studio journal" title="Studio journal"><BookOpenText aria-hidden="true" /></a>
-                <a href="mailto:kenyalangku@gm`ail.com" aria-label="Email KenyalangKu" title="Email"><Mail aria-hidden="true" /></a>
+                <a href="/projects" aria-label="Explore KenyalangKu projects" title="Our projects"><Gamepad2 aria-hidden="true" /></a>
+                <a href="mailto:kenyalangku@gmail.com" aria-label="Email KenyalangKu" title="Email"><Mail aria-hidden="true" /></a>
                 <a href="/collaboration" aria-label="Collaborate with KenyalangKu" title="Collaborate"><Link2 aria-hidden="true" /></a>
               </nav>
             </div>

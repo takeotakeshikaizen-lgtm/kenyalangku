@@ -25,37 +25,14 @@ const slides = [
     contain: false,
   },
   {
-    id: "vision",
-    label: "OUR VISION",
-    title: "A place on the world stage.",
+    id: "nazreen",
+    label: "3D ASSET DESIGNER",
+    title: "Nazreen Bin Abdul Radzak",
     description:
-      "A future where Malaysia is internationally recognised for distinctive, world-class games rooted in its own cultural identity.",
-    image: "/images/kenyalangku/palace-bg.png",
-    imageAlt: "Illustrated timber palace with layered roofs and carved details.",
-    imageLabel: "HERITAGE · REIMAGINED",
-    contain: true,
-  },
-  {
-    id: "mission",
-    label: "OUR MISSION",
-    title: "Create here. Connect everywhere.",
-    description:
-      "Create culturally rooted Malaysian games for global audiences, develop local creative talent, and connect our culture with the international games industry.",
-    image: "/night-walk/assets/garden.webp",
-    imageAlt: "Lantern-lit wooden pavilion beside water beneath a vermilion moon.",
-    imageLabel: "LOCAL IDENTITY · GLOBAL IMAGINATION",
-    contain: false,
-  },
-  {
-    id: "objective",
-    label: "CULTURE THROUGH PLAY",
-    title: "Make culture playable.",
-    description:
-      "Transform heritage, mythology, landscapes, and imagination into interactive experiences that encourage curiosity about Malaysia.",
-    image: "/night-walk/assets/myth-tanah.webp",
-    imageAlt:
-      "Early MYTH: TANAH character concept showing a Malay-inspired wanderer with a keris.",
-    imageLabel: "MYTH: TANAH · EARLY VISUAL CONCEPT",
+      "Nazreen Bin Abdul Radzak is a creative, detail-oriented multimedia graduate with formal training in multimedia design. His practical experience in IT technical support, graphic design, digital content creation, and fast-paced event environments informs a versatile, problem-solving approach. At KenyalangKu, he contributes as a 3D Asset Designer, bringing his interests in web design and photography to a broad creative practice.",
+    image: "/images/kenyalangku/nazreen-bin-abdul-radzak.png",
+    imageAlt: "Portrait of Nazreen Bin Abdul Radzak, KenyalangKu 3D Asset Designer.",
+    imageLabel: "NAZREEN BIN ABDUL RADZAK · 3D ASSET DESIGNER",
     contain: false,
   },
 ];
@@ -105,7 +82,7 @@ export default function AboutCarousel() {
       onBlurCapture={handleBlur}
     >
       <div
-        className={`${styles.visual} ${slide.contain ? styles.contain : ""} ${slide.id === "founder" ? styles.founderVisual : ""}`}
+        className={`${styles.visual} ${slide.contain ? styles.contain : ""} ${slide.id === "founder" ? styles.founderVisual : ""} ${slide.id === "nazreen" ? styles.nazreenVisual : ""}`}
       >
         <Image
           key={slide.image}
@@ -128,7 +105,7 @@ export default function AboutCarousel() {
             <span>{slideNumber} / {String(slides.length).padStart(2, "0")}</span>
           </div>
           <h2
-            className={slide.id === "founder" ? styles.founderTitle : undefined}
+            className={slide.id === "founder" ? styles.founderTitle : slide.id === "nazreen" ? styles.nazreenTitle : undefined}
           >
             {slide.title}
           </h2>

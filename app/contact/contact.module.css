@@ -5,7 +5,7 @@
   min-height: calc(100svh - 64px);
   padding: 54px 0 34px;
   overflow: hidden;
-  background: #080c10;
+  background: transparent;
   color: var(--contact-ink);
 }
 

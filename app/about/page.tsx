@@ -7,7 +7,7 @@ import styles from "./about.module.css";
 export const metadata: Metadata = {
   title: "About us",
   description:
-    "Meet Syahmir Supardi, founder and game creator of KenyalangKu, and discover the studio’s vision, mission, and culture-through-play objective.",
+    "Meet KenyalangKu founder Syahmir Supardi and 3D Asset Designer Nazreen Bin Abdul Radzak.",
 };
 
 export default function About() {

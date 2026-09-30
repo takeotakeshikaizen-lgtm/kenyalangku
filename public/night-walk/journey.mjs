@@ -83,8 +83,8 @@ addEventListener('keydown',event=>{
   if(event.key==='Escape'&&!menu.hidden)setMenu(false);
   if(event.key==='Tab'&&!menu.hidden){const links=[menuButton,...menu.querySelectorAll('a')];const i=links.indexOf(document.activeElement);event.preventDefault();links[(i+(event.shiftKey?-1:1)+links.length)%links.length].focus();}
 });
-const standaloneTargets={about:'#roots',projects:'#worlds',journal:'#studio-notes',collaboration:'#connections',contact:'#afterlight','projects/pusaka':'#worlds','projects/myth-tanah':'#worlds'};
-for(const link of $$('[data-company-route]')){link.href=standaloneTargets[link.dataset.companyRoute];link.addEventListener('click',()=>{if(!menu.hidden)setMenu(false,false);if(link.dataset.companyRoute==='journal')$('#studio-notes').open=true;});}
+const standaloneTargets={about:'#roots',projects:'#worlds',collaboration:'#connections',contact:'#afterlight','projects/pusaka':'#worlds','projects/myth-tanah':'#worlds'};
+for(const link of $$('[data-company-route]')){link.href=standaloneTargets[link.dataset.companyRoute];link.addEventListener('click',()=>{if(!menu.hidden)setMenu(false,false);});}
 for(const link of $$('a[href^="#"]'))link.addEventListener('click',event=>{
   const target=document.getElementById(link.hash.slice(1));if(!target)return;event.preventDefault();if(!menu.hidden)setMenu(false,false);history.pushState(null,'',link.hash);
   target.scrollIntoView({behavior:reduce.matches?'instant':'smooth',block:'start'});target.setAttribute('tabindex','-1');target.focus({preventScroll:true});

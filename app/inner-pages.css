@@ -1,0 +1,41 @@
+/* The standalone WebGL homepage does not load this stylesheet. */
+body:has(.inner-page-backdrop) {
+  --paper: #080c10;
+  --paper-dark: #142026;
+  --ink: #e2e2d6;
+  --muted: #b0bcbf;
+  --gold: #eaa124;
+  --bright-gold: #eaa124;
+  --line: #b8ccce30;
+  --forest: #101c21;
+  background: #080c10;
+  color: var(--ink);
+}
+.inner-page-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, #080c1085, #080c10b8 55%, #080c1070), url('/images/kenyalangku/wallpaper-page.png') center / cover no-repeat;
+}
+body:has(.inner-page-backdrop) .kk-header {
+  --header-ink: #e2e2d6;
+  --header-muted: #b6c0c0;
+  --header-accent: #eaa124;
+}
+body:has(.inner-page-backdrop) em { color: #dfb46d; }
+body:has(.inner-page-backdrop) .partner-band,
+body:has(.inner-page-backdrop) .collaboration-cta { background: transparent; }
+body:has(.inner-page-backdrop) .partner-caption,
+body:has(.inner-page-backdrop) .partner-intro .small-label,
+body:has(.inner-page-backdrop) .collection-header,
+body:has(.inner-page-backdrop) .cta-inner p,
+body:has(.inner-page-backdrop) .journal-meta,
+body:has(.inner-page-backdrop) .article-prose p { color: var(--muted); }
+body:has(.inner-page-backdrop) .skip-link { background: #eaa124; color: #080c10; }
+body:has(.inner-page-backdrop) .text-link:hover { color: #eaa124; }
+body:has(.inner-page-backdrop) .collaboration-cta { border-color: var(--line); }
+body:has(.inner-page-backdrop) .collaboration-cta::after { box-shadow: 0 0 0 28px #080c1040, 0 0 0 29px #bca77330, 0 0 0 57px #080c1030, 0 0 0 58px #bca77320; }
+body:has(.inner-page-backdrop) .collection-header b { background: #b8ccce18; }
+body:has(.inner-page-backdrop) .partner-intro { border-color: var(--line); }
+body:has(.inner-page-backdrop) .button-dark { color: #080c10; background: #eaa124; }

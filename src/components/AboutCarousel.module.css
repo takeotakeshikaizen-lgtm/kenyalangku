@@ -49,6 +49,11 @@
   object-position: center 58%;
 }
 
+.nazreenVisual .visualImage {
+  object-position: center 60%;
+  filter: saturate(0.68) contrast(1.04);
+}
+
 .contain .visualImage {
   object-fit: contain;
   padding: 7% 4% 3%;
@@ -134,6 +139,10 @@
 
 .story h2.founderTitle {
   font-size: clamp(38px, 4.4vw, 64px);
+}
+
+.story h2.nazreenTitle {
+  font-size: clamp(34px, 4.1vw, 56px);
 }
 
 .storyRule {

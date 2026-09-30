@@ -7,7 +7,7 @@ import {
   Sprout,
   Sparkles,
 } from "lucide-react";
-import { articles, projects } from "@/src/lib/content";
+import { projects } from "@/src/lib/content";
 
 export function SectionLabel({
   children,
@@ -125,39 +125,6 @@ export function ProjectCards() {
             <span className="project-number">/{project.number}</span>
           </div>
           <p>{project.description}</p>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-export function JournalCards() {
-  return (
-    <div className="journal-grid">
-      {articles.map((article, i) => (
-        <Link
-          className="journal-card"
-          href={`/journal/${article.slug}`}
-          key={article.slug}
-        >
-          <div className={`journal-image journal-image-${i}`}>
-            <Image
-              src={article.image}
-              alt={article.imageAlt}
-              fill
-              sizes="(max-width: 760px) 100vw, 33vw"
-            />
-            <span>0{i + 1}</span>
-          </div>
-          <div className="journal-meta">
-            <span>{article.category}</span>
-            <span>{article.readTime}</span>
-          </div>
-          <h3>{article.title}</h3>
-          <p>{article.excerpt}</p>
-          <span className="text-link">
-            Read the story <ArrowUpRight size={16} />
-          </span>
         </Link>
       ))}
     </div>

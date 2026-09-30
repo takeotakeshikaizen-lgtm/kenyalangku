@@ -95,11 +95,11 @@ for(const link of $$('a[href^="#"]'))link.addEventListener('click',event=>{
 
 // Static delivery uses local story anchors. Next adds this response header to
 // enable its existing company pages without imposing a framework on this file.
-const standaloneTargets={about:'#afterlight',projects:'#craft',journal:'#studio-notes',collaboration:'#connections',contact:'#contact','projects/pusaka':'#craft','projects/myth-tanah':'#craft'};
+const standaloneTargets={about:'#afterlight',projects:'#craft',collaboration:'#connections',contact:'#contact','projects/pusaka':'#craft','projects/myth-tanah':'#craft'};
 for(const link of $$('[data-company-links] a, [data-company-route]')){
   const route=link.dataset.companyRoute||link.getAttribute('href').replace(/^\.\//,'');
   link.dataset.companyRoute=route;link.href=standaloneTargets[route]||'#manifesto';
-  link.addEventListener('click',()=>{if(!menu.hidden)setMenu(false,false);if(route==='journal')$('#studio-notes').open=true;});
+  link.addEventListener('click',()=>{if(!menu.hidden)setMenu(false,false);});
 }
 fetch(location.href.split('#')[0],{method:'HEAD',cache:'no-store'}).then(response=>{
   if(response.headers.get('X-KenyalangKu-Company')==='enabled')for(const link of $$('[data-company-route]'))link.href=`./${link.dataset.companyRoute}`;

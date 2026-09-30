@@ -1,0 +1,27 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: max(640px, calc(100svh - 110px));
+  place-items: center;
+  padding: clamp(100px, 13vh, 146px) clamp(18px, 5vw, 78px) 52px;
+  color: #e2e2d6;
+}
+
+.carouselFrame {
+  position: relative;
+  width: min(100%, 1320px);
+  height: clamp(400px, 61vh, 590px);
+  margin-inline: auto;
+}
+
+@media (max-width: 700px) {
+  .page {
+    min-height: max(570px, calc(100svh - 120px));
+    padding: 92px 8px 36px;
+  }
+
+  .carouselFrame {
+    height: clamp(360px, 54vh, 470px);
+  }
+}
