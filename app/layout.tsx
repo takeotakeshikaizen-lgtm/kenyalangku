@@ -1,3 +1,5 @@
+/* The standalone journey and App Router pages share this public stylesheet. */
+/* eslint-disable @next/next/no-css-tags */
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/src/components/Navbar";
@@ -6,7 +8,6 @@ import SiteLoader from "@/src/components/SiteLoader";
 import PageBackdrop from "@/src/components/PageBackdrop";
 import "./globals.css";
 import "../public/night-walk/footer-9.css";
-import "../public/night-walk/site-header.css";
 import "../public/night-walk/intro.css";
 import "./inner-pages.css";
 
@@ -43,6 +44,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <head>
+        <link rel="stylesheet" href="/night-walk/site-header.css" />
+      </head>
       <body className={manrope.variable}>
         <PageBackdrop />
         <SiteLoader />

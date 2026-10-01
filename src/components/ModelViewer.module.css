@@ -1,0 +1,132 @@
+.viewer {
+  position: relative;
+  width: 100%;
+  min-height: 530px;
+  overflow: hidden;
+  background: #0b1419;
+  isolation: isolate;
+}
+
+.viewer::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: radial-gradient(circle at 50% 42%, transparent 16%, rgba(4, 8, 11, 0.52) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.canvas {
+  width: 100% !important;
+  height: 530px !important;
+  touch-action: none;
+}
+
+.loading,
+.error {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  color: #e2e2d6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  pointer-events: none;
+}
+
+.loading {
+  background: radial-gradient(circle at center, rgba(234, 161, 36, 0.08), transparent 50%);
+}
+
+.error {
+  z-index: 4;
+  padding: 26px;
+  background: #0b1419;
+  letter-spacing: normal;
+  pointer-events: auto;
+}
+
+.error strong {
+  color: #eaa124;
+  font-size: 18px;
+}
+
+.error span {
+  max-width: 290px;
+  color: #aeb9b8;
+  line-height: 1.7;
+}
+
+.toolbar {
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 7px;
+}
+
+.toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(217, 226, 216, 0.32);
+  border-radius: 50%;
+  background: rgba(8, 13, 17, 0.76);
+  color: #e2e2d6;
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.toolbar button:hover,
+.toolbar button[aria-pressed="true"] {
+  border-color: #eaa124;
+  background: rgba(234, 161, 36, 0.15);
+  color: #eaa124;
+}
+
+.toolbar button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.help {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #c8d3ce;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+
+.help span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #eaa124;
+}
+
+@media (max-width: 760px) {
+  .viewer { min-height: 390px; }
+  .canvas { height: 390px !important; }
+  .toolbar { top: 12px; right: 12px; }
+  .toolbar button { width: 36px; height: 36px; }
+  .help { bottom: 13px; left: 14px; right: 14px; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toolbar button { transition: none; }
+}

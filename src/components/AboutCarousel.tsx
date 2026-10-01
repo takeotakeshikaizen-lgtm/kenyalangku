@@ -111,8 +111,12 @@ export default function AboutCarousel() {
           </h2>
           <div className={styles.storyRule} aria-hidden="true" />
           <p>{slide.description}</p>
-          <Link className={styles.storyLink} href="/collaboration">
-            Continue the conversation <ArrowUpRight size={16} aria-hidden="true" />
+          <Link
+            className={styles.storyLink}
+            href={slide.id === "nazreen" ? "/about/nazreen/assets" : "/collaboration"}
+          >
+            {slide.id === "nazreen" ? "Explore 3D assets" : "Continue the conversation"}
+            <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
 
