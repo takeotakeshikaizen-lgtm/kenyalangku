@@ -13,12 +13,23 @@ export const metadata: Metadata = {
 };
 
 const assetDetails: Record<string, Pick<GalleryAsset, "title" | "project" | "description">> = {
+  "pavilion-pusaka.fbx": {
+    title: "Pavilion",
+    project: "PUSAKA",
+    description:
+      "A pavilion asset for the world of PUSAKA. Rotate and zoom to examine its form and construction from every angle.",
+  },
   "watchtower-pusaka.fbx": {
     title: "Watchtower",
     project: "PUSAKA",
     description:
       "A watchtower asset for the world of PUSAKA. Turn the model to examine its form, textures, and construction from every angle.",
   },
+};
+
+const assetOrder: Record<string, number> = {
+  "pavilion-pusaka.fbx": 0,
+  "watchtower-pusaka.fbx": 1,
 };
 
 function titleFromFilename(filename: string) {
@@ -34,7 +45,11 @@ async function getAssets(): Promise<GalleryAsset[]> {
 
   return entries
     .filter((entry) => entry.isFile() && /\.fbx$/i.test(entry.name))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) =>
+      (assetOrder[a.name] ?? Number.MAX_SAFE_INTEGER) -
+        (assetOrder[b.name] ?? Number.MAX_SAFE_INTEGER) ||
+      a.name.localeCompare(b.name),
+    )
     .map((entry) => ({
       id: entry.name,
       url: `/models/nazreen/${encodeURIComponent(entry.name)}`,
